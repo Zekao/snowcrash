@@ -1,3 +1,3 @@
-## Level 00
+## Level 07
 
 getflag > /tmp/flagfile

