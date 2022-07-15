@@ -14,6 +14,12 @@ level00@SnowCrash:~$ find / -user flag00 2> /dev/null
 /rofs/usr/sbin/john
 ```
 
+```bash
+level00@SnowCrash:~$ ls -l /usr/sbin/john /rofs/usr/sbin/john
+----r--r-- 1 flag00 flag00 15 Mar  5  2016 /rofs/usr/sbin/john
+----r--r-- 1 flag00 flag00 15 Mar  5  2016 /usr/sbin/john
+```
+
 When we look at the file's content, there is the following text: cdiiddwpgswtgt. After using CyberChef, we can see the text use ROT11 to hide the next password: nottoohardhere
 
 https://gchq.github.io/CyberChef/#recipe=ROT13(true,true,false,11)&input=Y2RpaWRkd3Bnc3d0Z3Q
