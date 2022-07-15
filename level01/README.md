@@ -52,4 +52,4 @@ flag01:abcdefg:3001:3001::/home/flag/flag01:/bin/bash
 1 password hash cracked, 0 left
 ```
 
-We can see that the hash corresponds to abcdefg password
+We can see that the hash corresponds to <mark>abcdefg</mark> password
