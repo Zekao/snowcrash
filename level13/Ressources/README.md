@@ -2,11 +2,10 @@
 
 
 # First method
+In this level, we have two different ways to get the flag:
 
-In this level, we have two differents ways to get the flag:
-
-The program will check the UID of the user and if it is the same as the one in the flag, it will print the flag.
-First way is to replace the getuid function called in the program by your own that will return 4242
+The program will check the UID of the user, and if it is the same as the one in the flag, it will print the flag.
+The first way is to replace the getuid function called in the program with your own that will return 4242
 
 ```c
 #include <sys/types.h>
