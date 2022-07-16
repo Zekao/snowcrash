@@ -470,7 +470,7 @@ printf("your token is %s\n", "2A31L79asukciNyi8uppkEuSx"your token is 2A31L79asu
 # Second method
 
 
-We can reverse the programe with Ghidra and see that the flag is in a function named ft_des.
+We can reverse the program with Ghidra and see that the flag is in a function named ft_des.
 
 ```bash
 ➜  Documents ./a.out
