@@ -1,3 +1,4 @@
+## Level 00
                                             find -O3 / -user "flag00" 2>/dev/null
 
 First of all, we have to find created by a user called flag00

@@ -1,3 +1,4 @@
+## Level 06
                 echo '[x {${exec(getflag)}}]' > /tmp/flag
 
 

@@ -1,3 +1,4 @@
+## Level 01
                                 cat /etc/passwd
                                 cat /etc/passwd | grep flag01
 This time, there is no file of the user flag01, in /etc/passwd you can see a lot of level and flag and there is something for the flag01 which is not an ```x```
