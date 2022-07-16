@@ -7,8 +7,15 @@ ls -l
         -rwsr-s---+ 1 flag08 level08 8617 Mar  5  2016 level08
         -rw-------  1 flag08 flag08    26 Mar  5  2016 token
 
-We can create a symlink race to be able to read the content in token file
-(more informations about this on https://en.wikipedia.org/wiki/Symlink_race#:~:text=A%20symlink%20race%20is%20a,not%20otherwise%20accessible%20to%20them.)
+When we use ltrace, we can see that the program will do an strstr with ouf file and "token"
+
+        ltrace ./level08 token 
+        __libc_start_main(0x8048554, 2, 0xbffff7d4, 0x80486b0, 0x8048720 <unfinished ...>
+        strstr("token", "token")                                                              = "token"
+        printf("You may not access '%s'\n", "token"You may not access 'token'
+        )
+
+We can do a shortcut for our file in another path to bypass the strstr and be able to read the flag
 
 ln -s /home/user/level08/token /tmp/pass
 
