@@ -1,9 +1,12 @@
 ##Level 10
 
-In this level, we have an executable which will send a file to a remote host. ls -l
+In this level, we have an executable which will send a file to a remote host.
 
+```bash
+ls -l
         -rwsr-s---+ 1 flag10 level10 8617 Mar  5  2016 level10
         -rw-------  1 flag10 flag10    26 Mar  5  2016 token
+```
 We can create a symlink to try to read the content in the token file (symlink race)
 
 ln -s /home/user/level10/token /tmp/flag
