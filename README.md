@@ -185,7 +185,7 @@ Check flag.Here is your token : qi0maab88jeaj46qoumi7maus
 ```
 
 
-## Level 00
+## Level 04
 
 We can see level04 a level04.pl file in our home directory.
 
@@ -301,7 +301,7 @@ scp -P 4242 level09@192.168.56.101:~/token ~/Desktop
 su flag09 -> f3iji1ju5yuevaus41q1afiuq
 getflag
 ```
-## Level 09
+## Level 10
 
 f3iji1ju5yuevaus41q1afiuq
 
@@ -349,7 +349,7 @@ Check flag.Here is your token : g1qKMiRpXf53AWhDaU7FEkczr
 ```
 ## Level 13
 
-We can reverse the program with Ghidra and see that the flag is in a function named ft_des. 
+We can reverse the program with Ghidra and see that the flag is in a function named ft_des.
 
 ```bash
 ➜  Documents ./a.out
