@@ -434,7 +434,11 @@ Check flag.Here is your token : g1qKMiRpXf53AWhDaU7FEkczr
 
 # First method
 
-We can inject library by follow this step
+In this level, we have two differents ways to get the flag:
+
+The program will check the UID of the user and if it is the same as the one in the flag, it will print the flag.
+First way is to replace the getuid function called in the program by your own that will return 4242
+
 ```c
 #include <sys/types.h>
 
@@ -466,12 +470,13 @@ printf("your token is %s\n", "2A31L79asukciNyi8uppkEuSx"your token is 2A31L79asu
 # Second method
 
 
-We can reverse the program with Ghidra and see that the flag is in a function named ft_des.
+We can reverse the programe with Ghidra and see that the flag is in a function named ft_des.
 
 ```bash
 ➜  Documents ./a.out
 2A31L79asukciNyi8uppkEuSx
 ```
+
 ## Level 14
 
 We can reverse the program with Ghidra and see that the flag is in a function named ft_des.
