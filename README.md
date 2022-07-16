@@ -323,7 +323,7 @@ getflag
 ```
 ## Level 10
 
-In this level, we have an executable which will send a file to a remote host.
+At this level, we have an executable that will send a file to a remote host.
 
 ```bash
 ls -l
@@ -427,11 +427,27 @@ Check flag.Here is your token : g1qKMiRpXf53AWhDaU7FEkczr
 ```
 ## Level 13
 
-We can reverse the program with Ghidra and see that the flag is in a function named ft_des. 
+We can reverse the program with Ghidra and see that the flag is in a function named ft_des.
+
+```c
+#include <sys/types.h>
+
+uid_t getuid(void) {
+	return 4242;
+}
+```
+
+```bash
+level13@SnowCrash:/tmp$ gcc /tmp/getuid.c -shared -o getuid.so
+```
 
 ```bash
 ➜  Documents ./a.out
 2A31L79asukciNyi8uppkEuSx
+```
+
+```bash
+level13@SnowCrash:/tmp$ export LD_PRELOAD=/tmp/getuid.so
 ```
 ## Level 14
 

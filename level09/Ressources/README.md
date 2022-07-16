@@ -1,7 +1,7 @@
 ## Level 09
 
-In this level, we have a program that takes an argument and increments by one all characters we write by incrementation.
-It use the Rolling Cipher
+At this level, we have a program that takes an argument and increments by one all characters we write by incrementation.
+It uses the Rolling Cipher
 For example: abc = ace
 
 ```bash
