@@ -1,6 +1,6 @@
 ## Level 10
 
-In this level, we have an executable which will send a file to a remote host.
+At this level, we have an executable that will send a file to a remote host.
 
 ```bash
 ls -l
