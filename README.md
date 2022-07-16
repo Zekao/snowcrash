@@ -278,6 +278,9 @@ PHP Notice:  Use of undefined constant getflag - assumed 'getflag' in /home/user
 PHP Notice:  Undefined variable: Check flag.Here is your token : wiok45aaoguiboiki2tuin6ub in /home/user/level06/level06.php(4) : regexp code on line 1
 ```
 ## Level 07
+In this exercise, we have a compiled program with nm and strings. We don't have a lot of information about it.
+
+With ltrace, we can see that the program will recover an environment variable called LOGNAME, which is set as level07. If we change the value of this variable by getflag, when we execute the level07, it will display getflag because the program displays the log name. If we add a ";" and a new command, technically, it will display getflag AND execute our command
 
 ```bash
 level07@SnowCrash:~$ export LOGNAME="; getflag"
@@ -307,8 +310,8 @@ quif5eloekouj29ke0vouxean
 ```
 ## Level 09
 
-In this level, we have a program that takes an argument and increments by one all characters we write by incrementation.
-It use the Rolling Cipher
+At this level, we have a program that takes an argument and increments by one all characters we write by incrementation.
+It uses the Rolling Cipher
 For example: abc = ace
 
 ```bash
@@ -383,6 +386,7 @@ bash /tmp/script1.sh & bash /tmp/script2.sh
 
 Check flag.Here is your token : feulo4b72j7edeahuete3no7c
 ## Level 11
+
 In this exercise, we have a lua script. This script is a sort of a server that will listen to a port and compare the content you give it with an expected hash.
 
 As level07 user, you can use the getflag function to get the flag, but this time by adding it to the password Password:
