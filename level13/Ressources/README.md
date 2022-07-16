@@ -3,7 +3,11 @@
 
 # First method
 
-We can inject library by follow this step
+In this level, we have two differents ways to get the flag:
+
+The program will check the UID of the user and if it is the same as the one in the flag, it will print the flag.
+First way is to replace the getuid function called in the program by your own that will return 4242
+
 ```c
 #include <sys/types.h>
 
@@ -41,3 +45,4 @@ We can reverse the programe with Ghidra and see that the flag is in a function n
 ➜  Documents ./a.out
 2A31L79asukciNyi8uppkEuSx
 ```
+
