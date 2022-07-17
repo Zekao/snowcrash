@@ -57,7 +57,7 @@ char *ft_des(char *param_1)
   } while( true );
 }
 
-int    main()
+int	main()
 {
-    printf("%s\n", ft_des("boe]!ai0FB@.:|L6l@A?>qJ}I"));
+	printf("%s\n", ft_des("g <t61:|4_|!@IF.-62FH&G~DCK/Ekrvvdwz?v|"));
 }

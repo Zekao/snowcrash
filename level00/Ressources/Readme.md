@@ -1,18 +1,32 @@
 ## Level 00
-                                            find -O3 / -user "flag00" 2>/dev/null
 
-First of all, we have to find created by a user called flag00
--> https://www.plesk.com/blog/various/find-files-in-linux-via-command-line/
-so basically you have to use find but with specific flags such as -O3
-    -> O3 – Allow find to automatically re-order the search based on efficient use of resources and likelihood of success after
-    -> -user to check files from a user with a specific name
-    -> 2>/dev/null to move all garbages error commands to the /dev/null
-now, we have some folders, /usr/sbin/john and /rofs/usr/sbin/johh, both contains a text
-    -> cdiiddwpgswtgt
-After, i've called by best friendo called google chrome and went to dcode, entered the flag and it said me that is was cesar code.
-So, i've trusted him and he said me nottoohardhere
+We can see with the following command two files where the owner is flag00.
 
-su flag00 -> password : nottoohardhere
+```bash
+find / -user flag00 2> /dev/null
+```
 
-getflag
-Check flag.Here is your token : -   x24ti5gi3x0ol2eh4esiuxias
+After checking with ls -l, we can see we only have read access on them.
+
+```bash
+level00@SnowCrash:~$ find / -user flag00 2> /dev/null
+/usr/sbin/john
+/rofs/usr/sbin/john
+```
+
+```bash
+level00@SnowCrash:~$ ls -l /usr/sbin/john /rofs/usr/sbin/john
+----r--r-- 1 flag00 flag00 15 Mar  5  2016 /rofs/usr/sbin/john
+----r--r-- 1 flag00 flag00 15 Mar  5  2016 /usr/sbin/john
+```
+
+When we look at the file's content, there is the following text: cdiiddwpgswtgt.
+
+```bash
+level00@SnowCrash:~$ cat /usr/sbin/john
+cdiiddwpgswtgt
+```
+
+After using CyberChef, we can see the text use ROT11 to hide the next password: nottoohardhere
+
+https://gchq.github.io/CyberChef/#recipe=ROT13(true,true,false,11)&input=Y2RpaWRkd3Bnc3d0Z3Q
